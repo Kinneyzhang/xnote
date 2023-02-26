@@ -119,9 +119,10 @@
 (defvar xnote-current-id nil)
 
 (defun xnote-timeline-show ()
+  (interactive)
   (with-current-buffer (get-buffer-create xnote-timeline-buffer)
     (erase-buffer)
-    (let* ((date (xnote-current-date))
+    (let* ((date "2023-02-19") ;; (xnote-current-date)
            (data (xnote-timeline-data date)))
       (setq xnote-current-id (plist-get (car (last data)) :id))
       (insert (propertize date
